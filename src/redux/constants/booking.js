@@ -1,0 +1,5 @@
+export const GET_ROOM_HOTELID_ROOMTYPE = 'GET_ROOM_HOTEL_ID_ROOM_TYPE';
+export const CREATE_ORDER = 'CREATE_ORDER'
+export const UPDATE_ORDER = 'UPDATE_ORDER'
+export const UPDATE_ROOM = 'UPDATE_ROOM'
+export const GET_ORDER = 'GET_ORDER'
