@@ -34,6 +34,8 @@ import HotelSearch from './components/HotelSearch';
 import Hotel from './components/Hotel';
 import Booking from './components/Booking';
 import Order from './components/Order';
+import HotelAdmin from './components/HotelAdmin';
+import OrderAdmin from './components/OrderAdmin';
 
 function App() {
     // const isAdmin = useSelector(state => state.login.isAdmin);
@@ -75,11 +77,17 @@ function App() {
                     <Route path="/floors">
                         <Floor />
                     </Route>
+                    <Route path="/hotelAdmin">
+                        <HotelAdmin />
+                    </Route>
                     <Route path="/hotelSearch">
                         <HotelSearch />
                     </Route>
                     <Route path="/hotel">
                         <Hotel />
+                    </Route>
+                    <Route path="/orderAdmin">
+                        <OrderAdmin />
                     </Route>
                     <Route path="/order">
                         <Order />

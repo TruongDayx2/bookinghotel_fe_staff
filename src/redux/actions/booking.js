@@ -1,6 +1,6 @@
 import axios from "axios";
 import { ERROR } from "../constants/base";
-import { CREATE_ORDER, GET_ORDER, GET_ROOM_HOTELID_ROOMTYPE, UPDATE_ORDER, UPDATE_ROOM } from "../constants/booking";
+import { CREATE_ORDER, GET_ALL_ORDER, GET_ORDER, GET_ROOM_HOTELID_ROOMTYPE, UPDATE_ORDER, UPDATE_ROOM } from "../constants/booking";
 
 export const getRoomByHotelIdAndRoomType = (hotelId, rtId) => async dispatch => {
     try {
@@ -134,6 +134,36 @@ export const getOrderByUserId = (id)=> async dispatch=>{
         if(res.status === 200){
             dispatch({
                 type: GET_ORDER,
+                data: res.data
+            })
+        }
+        else {
+            dispatch({
+                type: ERROR,
+                data: null,
+            })
+        }
+    } catch (error) {
+        dispatch({
+            type: ERROR,
+            data: null,
+        })
+    }
+}
+export const getOrderByHotelId = (id)=> async dispatch=>{
+    try{
+        const res = await axios({
+            method: 'GET',
+            baseURL: process.env.REACT_APP_URL_API,
+            url:`order/hotelId/${id}`,
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token"),
+                "Content-Type": "application/json" 
+            }
+        })
+        if(res.status === 200){
+            dispatch({
+                type: GET_ALL_ORDER,
                 data: res.data
             })
         }

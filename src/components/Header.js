@@ -62,17 +62,17 @@ const Header = () => {
         }
     }
     useEffect(() => {
-      if(isLogout){
-        window.location.reload()
-      }
-    
+        if (isLogout) {
+            window.location.reload()
+        }
+
 
     }, [isLogout])
-    const handleClickOrder =()=>{
+    const handleClickOrder = () => {
         history.push('/order')
     }
 
-    return  (
+    return (
         <header className="header">
             {/* <Link className="header__logo" to='/'  >
                 77Booking
@@ -87,7 +87,15 @@ const Header = () => {
                         </div>
                     </Link>
                     <div className="nav__menu">
-                        <ul className="nav__list">
+                        <ul className="nav__list" style={{display:'flex'}}>
+                            <li className="nav__item" style={{marginRight:'100px'}}>
+                                <Link to='/hotelAdmin' id="hotelAdmin"
+                                    className="nav__link"
+                                    // onClick={() => linkAction('intro', true)}
+                                >
+                                    Khách sạn
+                                </Link>
+                            </li>
                             {
                                 !token ?
                                     (
@@ -101,14 +109,14 @@ const Header = () => {
                                         </li>
                                     ) :
                                     (
-                                        <li className="nav__item dropdown" style={{paddingBottom:"5px"}}>
+                                        <li className="nav__item dropdown" style={{ paddingBottom: "5px" }}>
                                             <div id='userSection'
                                                 className="nav__link" >
                                                 <div>
                                                     <i style={{ fontSize: "26px", marginRight: "5px" }} className='bx bxs-user-circle'></i>
                                                     {username}
                                                 </div>
-                          
+
                                             </div>
                                             <ul className="dropdown__menu">
                                                 <li style={{ cursor: "pointer" }} className="dropdown__item" onClick={() => handleClickOrder()}>
